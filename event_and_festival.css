@@ -1,0 +1,132 @@
+/* Basic Reset and Font Imports */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Header/Hero Section */
+.hero-section {
+    background-image: url('cover_track.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 10px auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Events Container */
+.events-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 30px;
+}
+
+.event-info h2 {
+    color: #006400; /* Dark green for headings */
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.event-date {
+    font-weight: 700;
+    color: #555;
+}
+
+.event-location {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Responsive and Reversed Layout */
+@media (min-width: 768px) {
+    .event-card {
+        flex-direction: row;
+    }
+    
+    .event-card img {
+        width: 50%;
+        height: 400px; /* Fixed height for consistency */
+    }
+
+    .event-card.reversed {
+        flex-direction: row-reverse;
+    }
+    
+    .event-card .event-info {
+        width: 50%;
+    }
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: #ddd;
+}
