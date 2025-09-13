@@ -2,13 +2,218 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travels - Register Now</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bs-font-sans-serif: 'Inter', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: var(--bs-font-sans-serif);
+        }
+
+        .main-container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .image-section {
+            background-image: url('https://placehold.co/1000x1200/524838/ffffff?text=Travels+Image');
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .content-overlay {
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 2rem;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #ced4da;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .btn-social {
+            border: 1px solid #ced4da;
+            width: 48%;
+        }
+
+        .form-check-input:checked {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .form-check-label a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-check-label a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .image-section {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hellow </h1>
-    <p>
-        simple Document paper 
-    </p>
+    <div class="main-container">
+        <!-- Left Image Section -->
+        <div class="image-section">
+            <div class="overlay"></div>
+            <div class="content-overlay">
+                <h1 class="fw-bold mb-5">Travels</h1>
+                <div>
+                    <h2 class="display-5 fw-bold mb-3">Create Your Account Now!</h2>
+                    <p class="fs-6 mb-5">By creating an account, you'll enjoy personalized travel recommendations, faster bookings, and exclusive offers.</p>
+                </div>
+                <div class="text-end">
+                    <p class="fs-6 mb-0">viatio 2025. All rights reserved.</p>
+                    <a href="#" class="text-white text-decoration-none me-3">Terms of Service</a>
+                    <a href="#" class="text-white text-decoration-none">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Form Section -->
+        <div class="form-section">
+            <div class="form-container">
+                <h3 class="h4 fw-bold mb-1">Register Now!</h3>
+                <p class="text-muted mb-4">Register now to start your journey!</p>
+
+                <form id="registrationForm" onsubmit="return validatePasswords()">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Jonathan" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="jonathan_doe@email.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                        <div id="passwordMismatchFeedback" class="invalid-feedback">
+                            Passwords do not match.
+                        </div>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                        <label class="form-check-label" for="termsCheck">
+                            I agree to <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2 rounded-pill">
+                        Sign up <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <p class="text-muted mb-0">Already have an account? <a href="#" class="text-decoration-none">Sign in</a></p>
+                    <p class="text-muted mt-2 mb-3">Or continue with</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="#" class="btn btn-light btn-social d-flex align-items-center justify-content-center py-2 rounded-pill">
+                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" width="24" height="24" class="me-2">
+                            Google
+                        </a>
+                        <a href="#" class="btn btn-light btn-social d-flex align-items-center justify-content-center py-2 rounded-pill">
+                            <i class="fab fa-facebook-f me-2"></i>
+                            Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function validatePasswords() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const passwordMismatchFeedback = document.getElementById('passwordMismatchFeedback');
+
+            if (password !== confirmPassword) {
+                confirmPasswordInput.classList.add('is-invalid');
+                passwordMismatchFeedback.style.display = 'block';
+                return false; // Prevent form submission
+            } else {
+                confirmPasswordInput.classList.remove('is-invalid');
+                passwordMismatchFeedback.style.display = 'none';
+                // In a real application, you would submit the form here
+                // For this example, we'll just log it
+                console.log("Form submitted successfully with matching passwords.");
+                return false; // For this example, we prevent submission to show the UI feedback
+            }
+        }
+    </script>
 </body>
 </html>
